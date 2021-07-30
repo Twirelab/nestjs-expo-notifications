@@ -1,17 +1,28 @@
 {
   "name": "nestjs-expo-notifications",
-  "version": "0.1.8",
-  "description": "Expo notification module for nestjs",
+  "version": "0.2.0",
+  "description": "Injectable Expo Notifications client for Nestjs",
   "author": "Lukasz Lupa",
   "private": false,
   "repository": {
     "url": "https://github.com/LukaszLupa/nestjs-expo-notifications",
     "type": "git"
   },
+  "keywords": [
+    "nestjs",
+    "expo",
+    "notifications",
+    "mobile",
+    "app",
+    "client",
+    "sdk",
+    "typescript",
+    "nestjs-expo-notifications",
+    "expo-server-sdk"
+  ],
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "tsc -p tsconfig.json",
-    "deploy": "sh ./publish.sh"
+    "build": "tsc -p tsconfig.json"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,9 +30,6 @@
     "dist/**/*"
   ],
   "license": "MIT",
-  "dependencies": {
-    "expo-server-sdk": "^3.6.0"
-  },
   "devDependencies": {
     "@nestjs/cli": "^7.5.1",
     "@nestjs/common": "^7.5.1",
@@ -44,6 +52,12 @@
     "ts-loader": "^8.0.8",
     "ts-node": "^9.0.0",
     "tsconfig-paths": "^3.9.0",
-    "typescript": "^4.0.5"
+    "typescript": "^4.0.5",
+    "expo-server-sdk": "^3.6.0"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^7.0.0",
+    "@nestjs/core": "^7.0.0",
+    "expo-server-sdk": "^3.0.0"
   }
 }
