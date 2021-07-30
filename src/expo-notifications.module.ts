@@ -1,6 +1,6 @@
-import {DynamicModule, Logger, Module, Provider} from '@nestjs/common';
+import {DynamicModule, Module} from '@nestjs/common';
 import {ExpoClientOptions} from 'expo-server-sdk';
-import {ExpoNotificationsService} from "./expo-notifications.service";
+import {ExpoNotificationsCoreModule} from './expo-notifications-core.module';
 
 @Module({})
 export class ExpoNotificationsModule {
@@ -8,21 +8,11 @@ export class ExpoNotificationsModule {
      * Provides a dynamic module for your application.
      *
      * @param options - Expo SDK options
-     * @param isGlobal - Whether this module should be globally imported, by default its true
      */
-    static forRoot(options?: ExpoClientOptions, isGlobal = true): DynamicModule {
-        const providers: Provider[] = [
-            {
-                provide: ExpoNotificationsService,
-                useValue: new ExpoNotificationsService(new Logger(), options),
-            },
-        ];
-
+    public static forRoot(options?: ExpoClientOptions): DynamicModule {
         return {
-            global: isGlobal,
             module: ExpoNotificationsModule,
-            providers,
-            exports: providers,
+            imports: [ExpoNotificationsCoreModule.forRoot(options)],
         };
     }
 }
