@@ -1,6 +1,6 @@
-import {DynamicModule, Module} from '@nestjs/common';
-import {ExpoClientOptions} from 'expo-server-sdk';
-import {ExpoNotificationsCoreModule} from './expo-notifications-core.module';
+import { DynamicModule, Module } from '@nestjs/common';
+import { ExpoClientOptions } from 'expo-server-sdk';
+import { ExpoNotificationsCoreModule } from './expo-notifications-core.module';
 
 @Module({})
 export class ExpoNotificationsModule {
@@ -8,6 +8,8 @@ export class ExpoNotificationsModule {
      * Provides a dynamic module for your application.
      *
      * @param options - Expo SDK options
+     * 
+     * @return {DynamicModule}
      */
     public static forRoot(options?: ExpoClientOptions): DynamicModule {
         return {

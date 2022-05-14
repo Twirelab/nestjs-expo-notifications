@@ -1,9 +1,12 @@
-import {Expo, ExpoClientOptions} from 'expo-server-sdk';
-import {ExpoNotificationsClient} from '../interfaces';
+import { Expo, ExpoClientOptions } from 'expo-server-sdk';
+import { ExpoNotificationsClient } from '../interfaces';
 
 /**
- *
- * @param options
+ *  Create client.
+ * 
+ * @param {ExpoClientOptions} options
+ * 
+ * @return {ExpoNotificationsClient}
  */
 export function createClient(options?: ExpoClientOptions): ExpoNotificationsClient {
     return new Expo(options);
